@@ -119,11 +119,20 @@ print("\n",
 
 print("--------------------")
 
+opponent_selection = input("\nPlease choose your opponent: \n1) Computer \n2)Human \n")
+if opponent_selection == 1:
+    selected_opponent.append("computer")
+elif opponent_selection == 2:
+    selected_opponent.append("human")
+else:
+    opponent_selection = input("\nInvalid Selection \nPlease choose your opponent: \n1) Computer \n2)Human \n")
+
+
 while game_over == False:
     if game_over == True:
         print_game_board()
         break
-
+    
     while turn != "P2":
         print_game_board()
         if game_over == False:
