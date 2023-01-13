@@ -106,7 +106,7 @@ selected_opponent = []
 turn = first_turn()
 #Main Game Loop
 
-print("\n    Welcome to\n",
+print("\n",
     " ###                                             #   # \n",
     "#   #  ###  #    # #    # #####  ###  #####      #   # \n",
     "#     #   # ##   # ##   # #     #   #   #        ##### \n",
@@ -141,7 +141,6 @@ while game_over == False:
             game_over = True
 
     else:
-        print_game_board()
         if game_over == False:
             cpu_choice = [random.choice(possible_letters), random.randint(0,5)]
             cpu_coordinate = coordinate_parser(cpu_choice)
