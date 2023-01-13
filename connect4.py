@@ -1,13 +1,4 @@
-##On load, I want the program to offer an opportunity to play with a human or comp P2
-##Turn counter
-##Get chips to show up on the board (take-turn)
-##Get chips to fall (gravity)
-##Win conditions (3 of them)
-
 import random
-
-print("Welcome to Connect 4!")
-print("--------------------")
 
 possible_letters = ["A","B","C","D","E","F","G"]
 game_board = [["","","","","","",""], ["","","","","","",""], ["","","","","","",""], ["","","","","","",""], ["","","","","","",""], ["","","","","","",""]]
@@ -110,12 +101,23 @@ def first_turn():
         return "P2"
 
 #This list will tell the program whether we are playing a human or comp opponent
+game_over = False
 selected_opponent = []
 turn = first_turn()
-
 #Main Game Loop
 
-game_over = False
+print("\n    Welcome to\n",
+    " ###                                             #   # \n",
+    "#   #  ###  #    # #    # #####  ###  #####      #   # \n",
+    "#     #   # ##   # ##   # #     #   #   #        ##### \n",
+    "#     #   # # #  # # #  # ####  #       #   ####     # \n",
+    "#     #   # #  # # #  # # #     #       #            # \n",
+    "#   # #   # #   ## #   ## #     #   #   #            # \n",
+    " ###   ###  #    # #    # #####  ###    #            # \n"
+)
+
+
+print("--------------------")
 
 while game_over == False:
     if game_over == True:
