@@ -119,24 +119,24 @@ print("\n",
 
 print("--------------------")
 
-opponent_selection = input("\nPlease choose your opponent: \n1) Computer \n2)Human \n")
+opponent_selection = int(input("\nPlease choose your opponent: \n1) Computer \n2) Human \n"))
+while opponent_selection != 1 and opponent_selection !=2:
+    opponent_selection = int(input("\nInvalid Selection \nPlease choose your opponent: \n1) Computer \n2) Human \n"))
 if opponent_selection == 1:
     selected_opponent.append("computer")
 elif opponent_selection == 2:
     selected_opponent.append("human")
-else:
-    opponent_selection = input("\nInvalid Selection \nPlease choose your opponent: \n1) Computer \n2)Human \n")
-
 
 while game_over == False:
     if game_over == True:
         print_game_board()
         break
-    
+
+
     while turn != "P2":
         print_game_board()
         if game_over == False:
-            player_choice = input("\nChoose a space:")
+            player_choice = input("\n🔵's turn!Choose a space:")
             coordinate = coordinate_parser(player_choice)
             try:
                 if (is_space_available(coordinate) and gravity_checker(coordinate)):
@@ -149,7 +149,7 @@ while game_over == False:
         if check_win("🔵"):
             game_over = True
 
-    else:
+    if selected_opponent[0] == "computer":
         if game_over == False:
             cpu_choice = [random.choice(possible_letters), random.randint(0,5)]
             cpu_coordinate = coordinate_parser(cpu_choice)
@@ -158,6 +158,23 @@ while game_over == False:
                 turn = "P1"
             if check_win("🔴"):
                 game_over = True
+
+    elif selected_opponent[0] == "human":
+        print_game_board()
+        if game_over == False:
+            player_choice = input("\n🔴's turn! Choose a space:")
+            coordinate = coordinate_parser(player_choice)
+            try:
+                if (is_space_available(coordinate) and gravity_checker(coordinate)):
+                    modify_array(coordinate, "🔴")
+                    turn = "P1"
+                else:
+                    print("Not a valid coordinate.")
+            except:
+                print("Error occured. Please try again.")
+        if check_win("🔴"):
+            game_over = True
+
 
 
                 
